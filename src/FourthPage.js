@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from "react-native";
 import { Actions } from 'react-native-router-flux';
-
 const deviceWidth = Dimensions.get("window").width;
 
-class Main extends Component {
+class FourthPage extends Component {
 
     constructor() {
         super();
@@ -18,19 +17,14 @@ class Main extends Component {
             <View style={styles.container}>
                 <View style={{ alignSelf: 'center', justifyContent: 'center', flex: 1 }}>
                     <View>
-                        <Text>WELCOME TO PLAYGROUND</Text>
-                        <TouchableOpacity style={styles.button} onPress={() => Actions.SecondPage()}>
-                            <Text style={styles.text}>
-                                go to second page
-                            </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.button} onPress={() => Actions.ThirdPage()}>
-                            <Text style={styles.text}>
-                                go to third page
-                            </Text>
-                        </TouchableOpacity>
+                        <Text>WELCOME TO FOURTH PAGE</Text>
                     </View>
                 </View>
+                <TouchableOpacity style={styles.button} onPress={() => Actions.Main({type: 'replace'})}>
+                    <Text style={styles.text}>
+                        go to root
+                    </Text>
+                </TouchableOpacity>
             </View>
         )
     }
@@ -52,4 +46,4 @@ const styles = StyleSheet.create({
         textAlign: 'center'
     }
 });
-export default Main;
+export default FourthPage;
