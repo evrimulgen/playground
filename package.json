@@ -7,15 +7,17 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"babel-preset-react-native": "2.1.0",
 		"react": "16.0.0-beta.5",
 		"react-native": "0.49.3",
+		"react-native-fcm": "^10.0.3",
 		"react-native-message-bar": "^1.6.0",
 		"react-native-router-flux": "^4.0.0-beta.22",
 		"react-native-vector-icons": "^4.4.2"
 	},
 	"devDependencies": {
 		"babel-jest": "21.2.0",
-		"babel-preset-react-native": "4.0.0",
+		"babel-register": "^6.26.0",
 		"jest": "21.2.1",
 		"react-test-renderer": "16.0.0-beta.5"
 	},

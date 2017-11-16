@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from "react-native";
+import FCM, { FCMEvent, RemoteNotificationResult, WillPresentNotificationResult, NotificationType } from 'react-native-fcm';
 import { Actions } from 'react-native-router-flux';
+import PushNotificationController from "./PushNotificationController";
 
 const deviceWidth = Dimensions.get("window").width;
 
@@ -16,6 +18,7 @@ class Main extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <PushNotificationController />
                 <View style={{ alignSelf: 'center', justifyContent: 'center', flex: 1 }}>
                     <View>
                         <Text>WELCOME TO PLAYGROUND</Text>

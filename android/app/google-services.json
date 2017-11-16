@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "438706419863",
+    "firebase_url": "https://playground-694b1.firebaseio.com",
+    "project_id": "playground-694b1",
+    "storage_bucket": "playground-694b1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438706419863:android:4101f86be13e2ca6",
+        "android_client_info": {
+          "package_name": "com.playground"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438706419863-8umqaom5s1773943d8iff1kl49ajtlim.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDktSOvJpofGOcbVMh6-X6IYalc1v7O1mQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

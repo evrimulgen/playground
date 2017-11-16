@@ -16,9 +16,9 @@ class SecondPage extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Dropdown show={this.state.show} height={200} duration={2000}>
+                <Dropdown show={this.state.show} height={200} duration={100} showText={'showText'} hideText={'hideText'}>
                     <Text style={{ textAlign: 'center', flex: 1 }}>line 1</Text>
-                    <Text style={{ textAlign: 'center', flex: 1 }}>line 2 </Text>
+                    <Text style={{ textAlign: 'center', flex: 1 }}>line 2</Text>
                     <Text style={{ textAlign: 'center', flex: 1 }}>line 3</Text>
                     <Text style={{ textAlign: 'center', flex: 1 }}>line 4</Text>
                     <Text style={{ textAlign: 'center', flex: 1 }}>line 5</Text>

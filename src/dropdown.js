@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Animated, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Animated, TouchableOpacity, transform } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 
 class dropdown extends Component {
@@ -12,11 +12,12 @@ class dropdown extends Component {
             height: 0,
             duration: 50,
             rotate: 0,
+            showText: 'show',
+            hideText: 'hide',
         };
     }
 
     componentWillUpdate(nextProps, nextState) {
-        console.log(nextState)
         if (this.state.show && !nextState.show) {
             this.hide()
         }
@@ -32,7 +33,7 @@ class dropdown extends Component {
     }
 
     componentDidMount() {
-        let { height, duration } = this.props
+        let { height, duration, showText, hideText } = this.props
         if (height) {
             this.setState({ animateHeight: new Animated.Value(height), rotate: new Animated.Value(0), height: height })
         }
@@ -41,6 +42,14 @@ class dropdown extends Component {
         }
         if (duration) {
             this.setState({ duration: duration })
+        }
+        if (showText) {
+            if (hideText) {
+                this.setState({ showText: showText, hideText: hideText })
+            }
+            else {
+                this.setState({ showText: showText, hideText: showText })
+            }
         }
     }
 
@@ -57,7 +66,6 @@ class dropdown extends Component {
                 this.state.rotate,
                 {
                     toValue: 0,
-                    easing: Easing.linear,
                     duration: this.state.duration,
                 }
             ),
@@ -78,7 +86,6 @@ class dropdown extends Component {
                 this.state.rotate,
                 {
                     toValue: 90,
-                    easing: Easing.linear,
                     duration: this.state.duration,
                 }
             ),
@@ -91,33 +98,26 @@ class dropdown extends Component {
         let { animateHeight, rotate } = this.state
         return (
             <View>
-                <TouchableOpacity style={{ height: 30, backgroundColor: 'navy', justifyContent: 'center', flexDirection: 'row', justifyContent: 'space-between' }} onPress={() => this.setState({ show: !this.state.show })}>
-                    <View style={{ justifyContent: 'center', marginLeft: 10 }}>
-                        {this.state.show ?
-                            <View style={{ justifyContent: 'center' }}>
-                                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                    <Text style={{ color: 'pink', textAlign: 'center' }}>
-                                        show
-                                    </Text>
-                                </View>
+                <TouchableOpacity style={{ height: 30, backgroundColor: 'navy', justifyContent: 'center', padding: 7 }} onPress={() => this.setState({ show: !this.state.show })}>
+                    {this.state.show ?
+                        <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+                            <Text style={{ color: 'pink', textAlign: 'center' }}>
+                                {this.state.showText}
+                            </Text>
+                            <Text>
+                                <Icon style={{ color: 'pink', fontSize: 16 }} name={'ios-arrow-down'} />
+                            </Text>
+                        </View>
+                        :
+                        <View style={{ justifyContent: 'center' }}>
+                            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                                <Text style={{ color: 'pink', textAlign: 'center' }}>
+                                    {this.state.hideText}
+                            </Text>
+                                <Icon style={{ color: 'pink', fontSize: 16 }} name={'ios-arrow-forward'} />
                             </View>
-                            :
-                            <View style={{ justifyContent: 'center' }}>
-                                <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                                    <Text style={{ color: 'pink', textAlign: 'center' }}>
-                                        hide
-                                    </Text>
-                                </View>
-                            </View>
-                        }
-                    </View>
-                    {console.log(rotate)}
-                    <Animated.Text style={{ color: 'yellow' }}>
-                        {rotate._value}
-                    </Animated.Text>
-                    <Animated.Text style={{ transform: [{ rotate: rotate + 'deg' }], marginRight: 10, justifyContent: 'center', alignSelf: 'center' }}>
-                        <Icon style={{ color: 'pink', fontSize: 16 }} name={'ios-arrow-forward'} />
-                    </Animated.Text>
+                        </View>
+                    }
                 </TouchableOpacity>
                 <Animated.View style={{ height: animateHeight, backgroundColor: 'gray' }}>
                     {this.props.children}
