@@ -29,7 +29,7 @@ export default class CustomNavBar extends React.Component {
           <Image
             style={{width: 30, height: 50}}
             resizeMode="contain"
-            source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Hamburger_icon.svg/1200px-Hamburger_icon.svg.png'}}></Image>
+            source={{uri: 'https://i.stack.imgur.com/Fw96Z.png'}}></Image>
         </TouchableOpacity>
       )
     } else {

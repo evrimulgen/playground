@@ -10,9 +10,6 @@ class Main extends Component {
 
     constructor() {
         super();
-        this.state = {
-
-        };
     }
 
     render() {
@@ -30,6 +27,16 @@ class Main extends Component {
                         <TouchableOpacity style={styles.button} onPress={() => Actions.ThirdPage()}>
                             <Text style={styles.text}>
                                 go to third page
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={() => Actions.VideoTester()}>
+                            <Text style={styles.text}>
+                                go to Video Tester
+                            </Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={() => Actions.NewsHF()}>
+                            <Text style={styles.text}>
+                                go to Hatyai Focus News
                             </Text>
                         </TouchableOpacity>
                     </View>

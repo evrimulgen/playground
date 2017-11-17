@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { Router, Scene, Actions, Navigator, Drawer, Stack } from 'react-native-router-flux';
-import { View, TouchableOpacity, } from "react-native";
+import { View, TouchableOpacity, Image } from "react-native";
 import MainScreen from './Main';
 import SecondPageScreen from './SecondPage';
 import ThirdPageScreen from './ThirdPage';
 import FourthPageScreen from './FourthPage';
+import VideoTesterScreen from './VideoTester';
+import NewsHF from './NewsHF';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -16,7 +18,7 @@ const Route = () => {
             <Drawer
                 key='drawer'
                 contentComponent={DrawerContent}
-                //drawerIcon={<Icon name='navicon' style={{fontSize:20}}/>}
+                drawerImage={require('./images/menu_burger.png')}
             >
                 <Scene
                     key="Main"
@@ -34,7 +36,7 @@ const Route = () => {
                         rightTitle="Home"
                         onRight={() => Actions.Main(type = 'reset')}
                         rightButtonTextStyle={{ color: '#000000', textAlign: 'center', padding: 1 }}
-                        headerTintColor="#000"
+                        headerTintColor="red"
                     >
                     </Scene>
                     <Scene
@@ -55,6 +57,27 @@ const Route = () => {
                         rightTitle="Home"
                         onRight={() => Actions.Main()}
                         rightButtonTextStyle={{ color: '#000000' }}
+                        headerTintColor="#000"
+                    />
+                    <Scene
+                        key="VideoTester"
+                        component={VideoTesterScreen}
+                        title="VideoTester"
+                        navigationBarStyle={{ backgroundColor: '#a6ff00' }}
+                        rightTitle="Home"
+                        onRight={() => Actions.Main()}
+                        rightButtonTextStyle={{ color: '#000000', textAlign: 'center', padding: 1 }}
+                        headerTintColor="#000"
+                    />
+                    <Scene
+                        key="NewsHF"
+                        component={NewsHF}
+                        title="News HatyaiFocus"
+                        navigationBarStyle={{ backgroundColor: '#ffffff' }}
+                        titleStyle={{color : "red"}}
+                        rightTitle="Home"
+                        onRight={() => Actions.Main()}
+                        rightButtonTextStyle={{ color: '#000000', textAlign: 'center', padding: 1 }}
                         headerTintColor="#000"
                     />
                 </Stack>
