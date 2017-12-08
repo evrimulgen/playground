@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, StyleSheet, Image, TouchableWithoutFeedback, Dimensions } from "react-native";
+import ActionBar from "react-native-action-bar";
 const deviceWidth = Dimensions.get("window").width;
 
 class ThirdPage extends Component {
@@ -14,11 +15,42 @@ class ThirdPage extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={{ alignSelf: 'center', justifyContent: 'center', flex: 1 }}>
-                    <View>
-                        <Text>WELCOME TO THIRD PAGE</Text>
-                    </View>
+
+                <View>
+                    <ActionBar
+                        containerStyle={styles.bar}
+                        title={'React-native-action-bar Example'}
+                        rightText={'Hello'}
+                        leftIconName={'menu'}
+                        leftBadge={''}
+                        onLeftPress={() => console.log('Left!')}
+                        onTitlePress={() => console.log('Title!')}
+                        rightIcons={[
+                            {
+                                name: 'star',
+                                badge: '1',
+                                onPress: () => console.log('Right Star !'),
+                            },
+                            {
+                                name: 'phone',
+                                badge: '1',
+                                onPress: () => console.log('Right Phone !'),
+                                isBadgeLeft: true,
+                            },
+                            {
+                                name: 'plus',
+                                onPress: () => console.log('Right Plus !'),
+                            },
+                            {
+                                name: 'flag',
+                                badge: '1',
+                                onPress: () => console.log('Right Flag !'),
+                            },
+                        ]}
+                    />
+                    <Text>WELCOME TO THIRD PAGE</Text>
                 </View>
+
             </View>
         )
     }
